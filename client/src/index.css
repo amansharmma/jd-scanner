@@ -1,0 +1,96 @@
+:root {
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --text: #1f2330;
+  --muted: #6b7280;
+  --border: #e3e5ec;
+  --primary: #4f46e5;
+  --strong: #16a34a;
+  --good: #65a30d;
+  --partial: #d97706;
+  --weak: #dc2626;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.app { max-width: 1200px; margin: 0 auto; padding: 24px 16px 48px; }
+header h1 { margin: 0 0 4px; }
+header p { margin: 0 0 20px; color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.card h2 { margin: 0 0 14px; font-size: 1.15rem; }
+.results { margin-top: 20px; overflow-x: auto; }
+
+input, textarea {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--border); border-radius: 8px;
+  font: inherit; background: #fff;
+}
+textarea { resize: vertical; }
+input[type='checkbox'] { width: auto; }
+
+button {
+  padding: 9px 16px; border: none; border-radius: 8px; background: var(--primary);
+  color: #fff; font: inherit; font-weight: 600; cursor: pointer;
+}
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.secondary { background: #eef0f6; color: var(--text); }
+button.danger { background: transparent; color: var(--weak); padding: 4px 8px; }
+button.link { background: none; color: var(--primary); padding: 0 6px; font-weight: 500; }
+
+.row { display: flex; gap: 10px; }
+.upload, .jd { display: flex; flex-direction: column; gap: 10px; }
+.jd .row { justify-content: space-between; }
+
+.hint { font-size: 0.85rem; color: var(--muted); margin: 6px 0; }
+.muted { color: var(--muted); font-size: 0.85rem; }
+.warn { color: var(--weak); }
+.empty { color: var(--muted); text-align: center; padding: 20px 0; }
+
+.alert { padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; cursor: pointer; white-space: pre-line; }
+.alert.error { background: #fdecec; color: #991b1b; }
+
+.candidates { list-style: none; padding: 0; margin: 10px 0 0; max-height: 380px; overflow-y: auto; }
+.candidates li {
+  display: flex; align-items: center; gap: 10px; padding: 10px 4px; border-bottom: 1px solid var(--border);
+}
+.candidates .info { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.candidates a, .details a { color: var(--primary); font-size: 0.85rem; white-space: nowrap; }
+
+.results-head { display: flex; justify-content: space-between; align-items: center; }
+.jd-summary { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; font-size: 0.9rem; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+th { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); }
+
+.score-cell { display: flex; align-items: center; gap: 10px; min-width: 180px; }
+.bar { flex: 1; height: 10px; background: #eef0f6; border-radius: 99px; overflow: hidden; }
+.fill { height: 100%; border-radius: 99px; }
+.fill.strong { background: var(--strong); }
+.fill.good { background: var(--good); }
+.fill.partial { background: var(--partial); }
+.fill.weak { background: var(--weak); }
+.pct { font-weight: 700; width: 44px; text-align: right; }
+
+.badge { padding: 3px 10px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+.badge.strong { background: #dcfce7; color: #166534; }
+.badge.good { background: #ecfccb; color: #3f6212; }
+.badge.partial { background: #fef3c7; color: #92400e; }
+.badge.weak { background: #fee2e2; color: #991b1b; }
+
+.chip { display: inline-block; padding: 2px 9px; margin: 2px 3px; border-radius: 99px; font-size: 0.8rem; }
+.chip.ok { background: #dcfce7; color: #166534; }
+.chip.bad { background: #fee2e2; color: #991b1b; }
+.chip.neutral { background: #eef0f6; }
+
+.details td { background: #fafbfd; }
+.details p { margin: 6px 0; }
+.breakdown { display: flex; gap: 24px; margin-bottom: 8px; }
+.breakdown div { display: flex; flex-direction: column; text-transform: capitalize; }
